@@ -143,6 +143,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\hrestart.txt" />
     <Content Include="App_Data\Sites\Default\mappings.bin" />
     <Content Include="App_Data\Sites\Default\Settings.txt" />
     <Content Include="Global.asax" />
@@ -174,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\Sites.config" />
+    <Content Include="App_Data\cache.dat" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
