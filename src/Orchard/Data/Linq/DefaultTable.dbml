@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="orchard" Class="DefaultTableDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.19.7.89;Initial Catalog=orchard;Persist Security Info=True;User ID=sa" SettingsObjectName="Orchard.Properties.Settings" SettingsPropertyName="orchardConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Common_BodyPartRecord" Member="Common_BodyPartRecords">
+    <Type Name="Common_BodyPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContentItemRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Format" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Title_TitlePartRecord" Member="Title_TitlePartRecords">
+    <Type Name="Title_TitlePartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContentItemRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Common_CommonPartRecord" Member="Common_CommonPartRecords">
+    <Type Name="Common_CommonPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OwnerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PublishedUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Container_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Common_CommonPartVersionRecord" Member="Common_CommonPartVersionRecords">
+    <Type Name="Common_CommonPartVersionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContentItemRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PublishedUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Common_IdentityPartRecord" Member="Common_IdentityPartRecords">
+    <Type Name="Common_IdentityPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Identifier" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Containers_ContainablePartRecord" Member="Containers_ContainablePartRecords">
+    <Type Name="Containers_ContainablePartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Position" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Containers_ContainerPartRecord" Member="Containers_ContainerPartRecords">
+    <Type Name="Containers_ContainerPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Paginated" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PageSize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemContentTypes" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ItemsShown" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ShowOnAdminMenu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AdminMenuText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AdminMenuPosition" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AdminMenuImageSet" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EnablePositioning" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AdminListViewName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ItemCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Containers_ContainerWidgetPartRecord" Member="Containers_ContainerWidgetPartRecords">
+    <Type Name="Containers_ContainerWidgetPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContainerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PageSize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderByProperty" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="OrderByDirection" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApplyFilter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FilterByProperty" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="FilterByOperator" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="FilterByValue" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Navigation_AdminMenuPartRecord" Member="Navigation_AdminMenuPartRecords">
+    <Type Name="Navigation_AdminMenuPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AdminMenuText" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AdminMenuPosition" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="OnAdminMenu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Navigation_MenuPartRecord" Member="Navigation_MenuPartRecords">
+    <Type Name="Navigation_MenuPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MenuText" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MenuPosition" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MenuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Alias_ActionRecord" Member="Orchard_Alias_ActionRecords">
+    <Type Name="Orchard_Alias_ActionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Area" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Controller" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Action" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Alias_AliasRecord" Member="Orchard_Alias_AliasRecords">
+    <Type Name="Orchard_Alias_AliasRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Path" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+      <Column Name="Action_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RouteValues" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Source" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="IsManaged" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Autoroute_AutoroutePartRecord" Member="Orchard_Autoroute_AutoroutePartRecords">
+    <Type Name="Orchard_Autoroute_AutoroutePartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContentItemRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomPattern" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+      <Column Name="UseCustomPattern" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UseCulturePattern" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DisplayAlias" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Blogs_BlogArchivesPartRecord" Member="Orchard_Blogs_BlogArchivesPartRecords">
+    <Type Name="Orchard_Blogs_BlogArchivesPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BlogId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Blogs_BlogPartArchiveRecord" Member="Orchard_Blogs_BlogPartArchiveRecords">
+    <Type Name="Orchard_Blogs_BlogPartArchiveRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PostCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BlogPart_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Blogs_RecentBlogPostsPartRecord" Member="Orchard_Blogs_RecentBlogPostsPartRecords">
+    <Type Name="Orchard_Blogs_RecentBlogPostsPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BlogId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Comments_CommentPartRecord" Member="Orchard_Comments_CommentPartRecords">
+    <Type Name="Orchard_Comments_CommentPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SiteName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CommentDateUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CommentText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CommentedOn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CommentedOnContainer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RepliedOn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Position" Type="System.Decimal" DbType="Decimal(19,5)" CanBeNull="true" />
+      <Column Name="CommentsPartRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Comments_CommentsPartRecord" Member="Orchard_Comments_CommentsPartRecords">
+    <Type Name="Orchard_Comments_CommentsPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CommentsShown" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CommentsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ThreadedComments" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CommentsCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_ContentPicker_ContentMenuItemPartRecord" Member="Orchard_ContentPicker_ContentMenuItemPartRecords">
+    <Type Name="Orchard_ContentPicker_ContentMenuItemPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContentMenuItemRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Framework_ContentItemRecord" Member="Orchard_Framework_ContentItemRecords">
+    <Type Name="Orchard_Framework_ContentItemRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Data" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContentType_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Framework_ContentItemVersionRecord" Member="Orchard_Framework_ContentItemVersionRecords">
+    <Type Name="Orchard_Framework_ContentItemVersionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Published" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Latest" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Data" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContentItemRecord_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Framework_ContentTypeRecord" Member="Orchard_Framework_ContentTypeRecords">
+    <Type Name="Orchard_Framework_ContentTypeRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Framework_CultureRecord" Member="Orchard_Framework_CultureRecords">
+    <Type Name="Orchard_Framework_CultureRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Culture" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Framework_DataMigrationRecord" Member="Orchard_Framework_DataMigrationRecords">
+    <Type Name="Orchard_Framework_DataMigrationRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DataMigrationClass" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Layouts_ElementBlueprint" Member="Orchard_Layouts_ElementBlueprints">
+    <Type Name="Orchard_Layouts_ElementBlueprint">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BaseElementTypeName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ElementTypeName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ElementDisplayName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ElementDescription" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+      <Column Name="ElementCategory" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="BaseElementState" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Layouts_LayoutPartRecord" Member="Orchard_Layouts_LayoutPartRecords">
+    <Type Name="Orchard_Layouts_LayoutPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContentItemRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TemplateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_MediaLibrary_MediaPartRecord" Member="Orchard_MediaLibrary_MediaPartRecords">
+    <Type Name="Orchard_MediaLibrary_MediaPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MimeType" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Caption" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AlternateText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FolderPath" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_MediaProcessing_FileNameRecord" Member="Orchard_MediaProcessing_FileNameRecords">
+    <Type Name="Orchard_MediaProcessing_FileNameRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Path" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ImageProfilePartRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_MediaProcessing_FilterRecord" Member="Orchard_MediaProcessing_FilterRecords">
+    <Type Name="Orchard_MediaProcessing_FilterRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Position" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageProfilePartRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_MediaProcessing_ImageProfilePartRecord" Member="Orchard_MediaProcessing_ImageProfilePartRecords">
+    <Type Name="Orchard_MediaProcessing_ImageProfilePartRecord">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_OutputCache_CacheParameterRecord" Member="Orchard_OutputCache_CacheParameterRecords">
+    <Type Name="Orchard_OutputCache_CacheParameterRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GraceTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RouteKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Packaging_PackagingSource" Member="Orchard_Packaging_PackagingSources">
+    <Type Name="Orchard_Packaging_PackagingSource">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FeedTitle" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FeedUrl" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_DecimalFieldIndexRecord" Member="Orchard_Projections_DecimalFieldIndexRecords">
+    <Type Name="Orchard_Projections_DecimalFieldIndexRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PropertyName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Value" Type="System.Decimal" DbType="Decimal(19,5)" CanBeNull="true" />
+      <Column Name="FieldIndexPartRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_DoubleFieldIndexRecord" Member="Orchard_Projections_DoubleFieldIndexRecords">
+    <Type Name="Orchard_Projections_DoubleFieldIndexRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PropertyName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Value" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FieldIndexPartRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_FieldIndexPartRecord" Member="Orchard_Projections_FieldIndexPartRecords">
+    <Type Name="Orchard_Projections_FieldIndexPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_FilterGroupRecord" Member="Orchard_Projections_FilterGroupRecords">
+    <Type Name="Orchard_Projections_FilterGroupRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QueryPartRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_FilterRecord" Member="Orchard_Projections_FilterRecords">
+    <Type Name="Orchard_Projections_FilterRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Position" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FilterGroupRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_IntegerFieldIndexRecord" Member="Orchard_Projections_IntegerFieldIndexRecords">
+    <Type Name="Orchard_Projections_IntegerFieldIndexRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PropertyName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Value" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FieldIndexPartRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_LayoutRecord" Member="Orchard_Projections_LayoutRecords">
+    <Type Name="Orchard_Projections_LayoutRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DisplayType" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Display" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QueryPartRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupProperty_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_MemberBindingRecord" Member="Orchard_Projections_MemberBindingRecords">
+    <Type Name="Orchard_Projections_MemberBindingRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Member" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_NavigationQueryPartRecord" Member="Orchard_Projections_NavigationQueryPartRecords">
+    <Type Name="Orchard_Projections_NavigationQueryPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Items" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Skip" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QueryPartRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_ProjectionPartRecord" Member="Orchard_Projections_ProjectionPartRecords">
+    <Type Name="Orchard_Projections_ProjectionPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Items" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemsPerPage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Skip" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PagerSuffix" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MaxItems" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplayPager" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QueryPartRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LayoutRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_PropertyRecord" Member="Orchard_Projections_PropertyRecords">
+    <Type Name="Orchard_Projections_PropertyRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Position" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LayoutRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExcludeFromDisplay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateLabel" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Label" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LinkToContent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CustomizePropertyHtml" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CustomPropertyTag" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="CustomPropertyCss" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="CustomizeLabelHtml" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CustomLabelTag" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="CustomLabelCss" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="CustomizeWrapperHtml" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CustomWrapperTag" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="CustomWrapperCss" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="NoResultText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ZeroIsEmpty" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HideEmpty" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RewriteOutput" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RewriteText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="StripHtmlTags" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TrimLength" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AddEllipsis" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaxLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrimOnWordBoundary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PreserveLines" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TrimWhiteSpace" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_QueryPartRecord" Member="Orchard_Projections_QueryPartRecords">
+    <Type Name="Orchard_Projections_QueryPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_SortCriterionRecord" Member="Orchard_Projections_SortCriterionRecords">
+    <Type Name="Orchard_Projections_SortCriterionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Position" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QueryPartRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Projections_StringFieldIndexRecord" Member="Orchard_Projections_StringFieldIndexRecords">
+    <Type Name="Orchard_Projections_StringFieldIndexRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PropertyName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="FieldIndexPartRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Recipes_RecipeStepResultRecord" Member="Orchard_Recipes_RecipeStepResultRecords">
+    <Type Name="Orchard_Recipes_RecipeStepResultRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExecutionId" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="RecipeName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="StepId" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="StepName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="IsCompleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSuccessful" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorMessage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Roles_PermissionRecord" Member="Orchard_Roles_PermissionRecords">
+    <Type Name="Orchard_Roles_PermissionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FeatureName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Roles_RoleRecord" Member="Orchard_Roles_RoleRecords">
+    <Type Name="Orchard_Roles_RoleRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Roles_RolesPermissionsRecord" Member="Orchard_Roles_RolesPermissionsRecords">
+    <Type Name="Orchard_Roles_RolesPermissionsRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Role_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Permission_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoleRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Roles_UserRolesPartRecord" Member="Orchard_Roles_UserRolesPartRecords">
+    <Type Name="Orchard_Roles_UserRolesPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Role_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Tags_ContentTagRecord" Member="Orchard_Tags_ContentTagRecords">
+    <Type Name="Orchard_Tags_ContentTagRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TagRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TagsPartRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Tags_TagRecord" Member="Orchard_Tags_TagRecords">
+    <Type Name="Orchard_Tags_TagRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TagName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Tags_TagsPartRecord" Member="Orchard_Tags_TagsPartRecords">
+    <Type Name="Orchard_Tags_TagsPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Taxonomies_TaxonomyPartRecord" Member="Orchard_Taxonomies_TaxonomyPartRecords">
+    <Type Name="Orchard_Taxonomies_TaxonomyPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TermTypeName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsInternal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Taxonomies_TermContentItem" Member="Orchard_Taxonomies_TermContentItems">
+    <Type Name="Orchard_Taxonomies_TermContentItem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Field" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TermRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TermsPartRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Taxonomies_TermPartRecord" Member="Orchard_Taxonomies_TermPartRecords">
+    <Type Name="Orchard_Taxonomies_TermPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Path" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TaxonomyId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Selectable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Taxonomies_TermsPartRecord" Member="Orchard_Taxonomies_TermsPartRecords">
+    <Type Name="Orchard_Taxonomies_TermsPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Users_UserPartRecord" Member="Orchard_Users_UserPartRecords">
+    <Type Name="Orchard_Users_UserPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NormalizedUserName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PasswordFormat" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HashAlgorithm" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RegistrationStatus" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EmailStatus" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EmailChallengeToken" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CreatedUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastLoginUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastLogoutUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Widgets_LayerPartRecord" Member="Orchard_Widgets_LayerPartRecords">
+    <Type Name="Orchard_Widgets_LayerPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LayerRule" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Widgets_WidgetPartRecord" Member="Orchard_Widgets_WidgetPartRecords">
+    <Type Name="Orchard_Widgets_WidgetPartRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Zone" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RenderTitle" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Workflows_ActivityRecord" Member="Orchard_Workflows_ActivityRecords">
+    <Type Name="Orchard_Workflows_ActivityRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="X" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Y" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Start" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WorkflowDefinitionRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Workflows_AwaitingActivityRecord" Member="Orchard_Workflows_AwaitingActivityRecords">
+    <Type Name="Orchard_Workflows_AwaitingActivityRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ActivityRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkflowRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Workflows_TransitionRecord" Member="Orchard_Workflows_TransitionRecords">
+    <Type Name="Orchard_Workflows_TransitionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SourceEndpoint" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DestinationEndpoint" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SourceActivityRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestinationActivityRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkflowDefinitionRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Workflows_WorkflowDefinitionRecord" Member="Orchard_Workflows_WorkflowDefinitionRecords">
+    <Type Name="Orchard_Workflows_WorkflowDefinitionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orchard_Workflows_WorkflowRecord" Member="Orchard_Workflows_WorkflowRecords">
+    <Type Name="Orchard_Workflows_WorkflowRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WorkflowDefinitionRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContentItemRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Scheduling_ScheduledTaskRecord" Member="Scheduling_ScheduledTaskRecords">
+    <Type Name="Scheduling_ScheduledTaskRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TaskType" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ScheduledUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ContentItemVersionRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ContentFieldDefinitionRecord" Member="Settings_ContentFieldDefinitionRecords">
+    <Type Name="Settings_ContentFieldDefinitionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ContentPartDefinitionRecord" Member="Settings_ContentPartDefinitionRecords">
+    <Type Name="Settings_ContentPartDefinitionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Hidden" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Settings" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ContentPartFieldDefinitionRecord" Member="Settings_ContentPartFieldDefinitionRecords">
+    <Type Name="Settings_ContentPartFieldDefinitionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Settings" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContentFieldDefinitionRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContentPartDefinitionRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ContentTypeDefinitionRecord" Member="Settings_ContentTypeDefinitionRecords">
+    <Type Name="Settings_ContentTypeDefinitionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Hidden" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Settings" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ContentTypePartDefinitionRecord" Member="Settings_ContentTypePartDefinitionRecords">
+    <Type Name="Settings_ContentTypePartDefinitionRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Settings" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContentPartDefinitionRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContentTypeDefinitionRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ShellDescriptorRecord" Member="Settings_ShellDescriptorRecords">
+    <Type Name="Settings_ShellDescriptorRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SerialNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ShellFeatureRecord" Member="Settings_ShellFeatureRecords">
+    <Type Name="Settings_ShellFeatureRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ShellDescriptorRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ShellFeatureStateRecord" Member="Settings_ShellFeatureStateRecords">
+    <Type Name="Settings_ShellFeatureStateRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="InstallState" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EnableState" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ShellStateRecord_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ShellParameterRecord" Member="Settings_ShellParameterRecords">
+    <Type Name="Settings_ShellParameterRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Component" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ShellDescriptorRecord_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings_ShellStateRecord" Member="Settings_ShellStateRecords">
+    <Type Name="Settings_ShellStateRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Unused" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
