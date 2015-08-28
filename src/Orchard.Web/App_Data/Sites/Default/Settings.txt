@@ -1,0 +1,14 @@
+State: Running
+Themes: 
+Modules: 
+Name: Default
+DataProvider: SqlServer
+DataConnectionString: Data Source=172.19.7.89;Initial Catalog=orchard;Persist Security Info=True;User ID=sa;Password=7ujm8ik,
+DataTablePrefix: null
+RequestUrlHost: null
+RequestUrlPrefix: null
+EncryptionAlgorithm: AES
+EncryptionKey: A9B82E6DCDE9B927C4DC9D1E3D7DA1281047C59B93BD348887B748684C3F6E46
+HashAlgorithm: HMACSHA256
+HashKey: 8369EB97FA8F0E2DB327611308B8BFC2C0332B29DA2EDB90932A9438339223F7E2C6C5696BE1D33B2D2BF7C21116662E092F47C85E9AAB18CE480CBDA4B8510C
+  
